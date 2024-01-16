@@ -1,13 +1,13 @@
 import { API_LOAN, API_VERIFY } from "@/config/apiConfig";
 import { LoanProps, UserProps } from "../_forms/LoanForm";
 import DashContainer from "../../component/Dashcontainer";
-import { P_LOAN, P_LOAN_PENDING } from "@/config/siteConfig";
+import { P_LOAN, P_LOAN_APPROVED } from "@/config/siteConfig";
 import { Metadata } from "next";
 import { cookies } from "next/headers";
 import ApprovedList from "./ApprovedList";
 
 export const metadata: Metadata = {
-	title: P_LOAN_PENDING.title,
+	title: P_LOAN_APPROVED.title,
 };
 
 export default async function page() {

@@ -26,7 +26,6 @@ export default function Login() {
 			redirect: false,
 		})
 			.then((data) => {
-				console.log("logindata", data);
 				if (data?.error) {
 					toast.error(`${data?.error || API_UNEXPECTED_ERROR}`);
 				} else {

@@ -1,15 +1,16 @@
 "use client";
 
-import { P_LOAN_ADD } from "@/config/siteConfig";
+import { P_LOAN, P_LOAN_ADD } from "@/config/siteConfig";
 import DashContainer from "../../../component/Dashcontainer";
 import { API_LOAN } from "@/config/apiConfig";
 import { useSession } from "next-auth/react";
 import { toastifyResponse } from "@/app/api/utils";
 import LoanForm, { LoanProps } from "../../_forms/LoanForm";
+import { useRouter } from "next/navigation";
 
 export default function LoanEditForm(value: { value: LoanProps }) {
 	const session = useSession();
-
+	const { push, refresh } = useRouter();
 	const onSubmit = async (data: LoanProps) => {
 		try {
 			const req = await fetch(API_LOAN, {
@@ -22,8 +23,12 @@ export default function LoanEditForm(value: { value: LoanProps }) {
 						value.value.userId === session.data?.user?.id,
 				}),
 			});
-			const res = await req.json();
-			await toastifyResponse(res);
+
+			await toastifyResponse(req);
+			if (req.ok) {
+				push(P_LOAN.href);
+				refresh();
+			}
 		} catch (e) {}
 	};
 

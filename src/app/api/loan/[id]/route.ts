@@ -25,7 +25,7 @@ export async function DELETE(
 			where: { id: Number(params.id) },
 			data: { isRemoved: true },
 		});
-		return NextResponse.json({ data: loan });
+		return NextResponse.json({ message: "Loan Request has been removed." });
 	} catch (e) {
 		return NextResponse.json({ message: getApiError(e) }, { status: 400 });
 	}

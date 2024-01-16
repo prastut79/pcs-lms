@@ -1,3 +1,5 @@
+"use client";
+
 import { MdDeleteOutline } from "react-icons/md";
 import DialogBox from "../DialogBox";
 import { useState } from "react";
@@ -5,9 +7,11 @@ import { LoanProps } from "@/app/dashboard/loan/_forms/LoanForm";
 import { toast } from "react-toastify";
 import { API_LOAN, API_UNEXPECTED_ERROR } from "@/config/apiConfig";
 import { toastifyResponse } from "@/app/api/utils";
+import { useRouter } from "next/navigation";
 
 export default function LoanDeleteAction({ loan }: { loan: LoanProps }) {
 	const [isOpen, setIsOpen] = useState(false);
+	const { refresh } = useRouter();
 
 	const handleClose = () => {
 		setIsOpen(false);
@@ -22,6 +26,7 @@ export default function LoanDeleteAction({ loan }: { loan: LoanProps }) {
 		} catch (e) {
 			toast.error(API_UNEXPECTED_ERROR);
 		}
+		refresh();
 	};
 
 	return (

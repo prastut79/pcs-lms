@@ -9,8 +9,6 @@ export async function GET(req: Request) {
 		const { searchParams } = new URL(req.url);
 		const session = await getServerSession(NextOptions);
 
-		console.log("userid-api-sess ", session);
-
 		const filters: any = {
 			isRemoved: false,
 			userId: session?.user?.id,
@@ -68,7 +66,7 @@ export async function POST(req: Request) {
 export async function PUT(req: Request) {
 	try {
 		const body = await req.json();
-		const { id, amount, purpose, status, remarks, userId, retry } = body;
+		const { id, amount, purpose, status, remarks, retry, fine } = body;
 		const loan = await prisma.loan.update({
 			where: { id },
 			data: {
@@ -77,7 +75,7 @@ export async function PUT(req: Request) {
 				returnedAt: new Date(),
 				status: retry ? "pending" : status,
 				remarks,
-				userId,
+				fine,
 			},
 		});
 		return NextResponse.json({ message: "Loan has been requested.", loan });

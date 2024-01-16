@@ -36,12 +36,13 @@ export async function PUT(req: Request) {
 
 		const body = await req.json();
 
-		const { id, status, remarks, updatedBy } = body;
+		const { id, status, remarks, updatedBy, fine } = body;
 		const loan = await prisma.loan.update({
 			where: { id },
 			data: {
 				status,
 				remarks,
+				fine,
 			},
 		});
 

@@ -6,6 +6,7 @@ import { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { NextOptions } from "@/app/api/auth/[...nextauth]/route";
 import { notFound } from "next/navigation";
+import { cookies } from "next/headers";
 
 export const metadata: Metadata = {
 	title: P_LOAN_VERIFY.title,
@@ -17,7 +18,10 @@ export default async function LoanEdit({ params }: { params: { id: string } }) {
 		return notFound();
 	}
 
-	const req = await fetch(API_LOAN + "/" + params.id);
+	const req = await fetch(API_LOAN + "/" + params.id, {
+		cache: "no-store",
+		headers: { cookie: cookies().toString() },
+	});
 	const loan = await req.json();
 
 	return (

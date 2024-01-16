@@ -44,12 +44,6 @@ export default function LoanForm({
 
 	const isAdmin = session.data?.user?.role === "admin";
 
-	// useEffect(() => {
-	// 	(async () => {
-	// 		const req = await fetch(API_LOAN);
-	// 		console.log("loans", await req.json());
-	// 	})();
-	// }, []);
 	return (
 		<form onSubmit={handleSubmit(formSubmit)} className="grid gap-8">
 			<div className="form-grid">

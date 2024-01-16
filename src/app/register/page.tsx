@@ -8,6 +8,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import Button from "@/components/ui/nativeButton";
 import { API_REGISTER } from "../../config/apiConfig";
+import { P_LOGIN } from "@/config/siteConfig";
 
 interface RegisterProps {
 	email: string;
@@ -24,15 +25,16 @@ export default function Login() {
 
 	const onSubmit = async (data: RegisterProps) => {
 		setLoading(true);
-		console.log("Submitted", data);
 
 		const req = await fetch(API_REGISTER, {
 			body: JSON.stringify(data),
 			method: "POST",
 		});
+
 		const res = await req.json();
 		if (req.ok) {
 			toast.success(res.message);
+			push(P_LOGIN.href);
 		} else {
 			toast.error(res.message);
 		}
@@ -87,9 +89,11 @@ export default function Login() {
 								{...register("confirmPassword")}
 							/>
 						</div>
-						<Button className="mt-5" loading={loading}>
-							Login
-						</Button>
+						<div className="flex justify-end">
+							<Button className="mt-5" loading={loading}>
+								Register
+							</Button>
+						</div>
 					</form>
 				</div>
 			</div>

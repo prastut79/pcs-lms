@@ -11,7 +11,6 @@ export default function DashboardRole({
 }) {
 	const { data } = useSession();
 
-	console.log("dashboard role render");
 	return (
 		<div>
 			<div className=" fc_x justify-between">

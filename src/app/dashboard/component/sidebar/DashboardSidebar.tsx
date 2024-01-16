@@ -27,8 +27,6 @@ export default function DashboardSidebar({
 	const [isOpen, setIsOpen] = useState(true);
 	const [isFixed, setIsFixed] = useState(true);
 
-	console.log("sidebar render");
-
 	const SideMenu = useMemo(
 		() => (
 			<>

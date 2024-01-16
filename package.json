@@ -1,27 +1,50 @@
 {
-  "name": "pcs-test",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.4"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.4"
-  }
+	"name": "pcs-test",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"setup-admin": "tsx scripts/addAdmin.js",
+		"restore-loan": "tsx scripts/restoreLoan.ts"
+	},
+	"dependencies": {
+		"@next-auth/prisma-adapter": "^0.4.4-canary.81",
+		"@prisma/client": "^5.8.1",
+		"@radix-ui/react-dialog": "^1.0.5",
+		"@radix-ui/react-popover": "^1.0.7",
+		"@radix-ui/react-slot": "^1.0.2",
+		"bcryptjs": "^2.4.3",
+		"class-variance-authority": "^0.7.0",
+		"clsx": "^2.1.0",
+		"cmdk": "^0.2.0",
+		"date-fns": "^3.2.0",
+		"lucide-react": "^0.309.0",
+		"next": "14.0.4",
+		"next-auth": "^4.24.5",
+		"prisma": "^5.8.1",
+		"react": "^18",
+		"react-day-picker": "^8.10.0",
+		"react-dom": "^18",
+		"react-hook-form": "^7.49.3",
+		"react-icons": "^5.0.1",
+		"react-toastify": "^10.0.1",
+		"tailwind-merge": "^2.2.0",
+		"tailwindcss-animate": "^1.0.7"
+	},
+	"devDependencies": {
+		"@types/bcryptjs": "^2.4.6",
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"autoprefixer": "^10.0.1",
+		"eslint": "^8",
+		"eslint-config-next": "14.0.4",
+		"postcss": "^8",
+		"tailwindcss": "^3.3.0",
+		"tsx": "^4.7.0",
+		"typescript": "^5"
+	}
 }

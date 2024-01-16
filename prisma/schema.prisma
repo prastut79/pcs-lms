@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User{
+  id Int @id @default(autoincrement())
+  email String @unique
+  name String
+  phone String
+  password String
+  address String
+  role String
+  loans Loan[]
+   tranVerifications TranVerification[]
+}
+
+model Loan{
+  id Int @id @default(autoincrement())
+  amount Int
+  purpose String
+  requestedAt DateTime @default(now()) @db.Timestamptz(6)
+  returnedAt  DateTime
+  isRemoved Boolean? @default(false)
+  status String @default("pending")
+  remarks String @default("")
+  fine Int?
+  user User @relation(fields: [userId], references:[id])
+  userId Int
+
+  trans TranVerification[]
+}
+
+
+model TranVerification {
+  id Int @id @default(autoincrement())
+  verifiedAt DateTime @default(now()) @db.Timestamptz(6)
+
+  user User @relation(fields: [verifiedBy], references:[id])
+  verifiedBy Int
+  
+  tran Loan @relation(fields: [tranId], references:[id])
+  tranId Int
+   
+}

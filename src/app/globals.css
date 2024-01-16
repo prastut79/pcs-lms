@@ -2,26 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.bc_x {
+		@apply active:!translate-y-[2px] active:opacity-40;
+	}
+	.form-grid {
+		@apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-7 gap-y-9 w-full;
+	}
+	.form-grid-sm {
+		@apply grid grid-cols-1 md:grid-cols-2 gap-x-7 gap-y-9 w-full;
+	}
+	.fcol {
+		@apply flex flex-col;
+	}
+	.fc_xy {
+		@apply flex items-center justify-center;
+	}
+	.fc_y {
+		@apply flex justify-center;
+	}
+	.fc_x {
+		@apply flex items-center;
+	}
+	.title-under {
+		@apply w-6 rounded-xl bg-theme h-1;
+	}
+
+	/**Fadein animation for modal*/
+	.fadein {
+		animation: fadein 200ms ease 1;
+		animation-fill-mode: both;
+	}
+	@keyframes fadein {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	/*Responsive Sidebar*/
+	.slideright {
+		animation: slideright 300ms ease 1;
+		animation-fill-mode: both;
+	}
+	@keyframes slideright {
+		0% {
+			transform: translateX(-100%);
+		}
+
+		100% {
+			transform: translateX(0);
+		}
+	}
+}
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+	--c-theme: 2, 132, 199;
+	--c-bg: 255, 255, 255;
+	--c-bg-pri: 233, 236, 239;
+	--c-bg-sec: 222, 226, 230;
+	--c-bg-light: 206, 212, 218;
+	--c-txt: 33, 37, 41;
+	--c-txt-btn: 255, 255, 255;
+	--c-txt-pri: 52, 58, 64;
+	--c-txt-sec: 73, 80, 87;
+	--c-txt-light: 107, 114, 144;
+	--c-error: 255, 107, 107;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+	box-sizing: border-box;
+	@apply tracking-[0.02rem];
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+html,
+body,
+:root {
+	height: 100%;
+	width: 100%;
+}
+
+.Toastify .Toastify__toast {
+	@apply min-h-[56px] font-semibold text-tp bg-white text-[14px] font-inter mb-3 shadow-md shadow-bp border border-theme/20;
+}
+.Toastify .Toastify__toast--error {
+	@apply text-red-500;
+}
+.Toastify .Toastify__toast--success {
+	@apply text-green-500;
 }

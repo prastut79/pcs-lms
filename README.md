@@ -1,6 +1,6 @@
 ## Getting Started
 
-First, pull the repo & install the required dependencies:
+First, install the required dependencies:
 
 ```bash
 npm install
@@ -20,9 +20,9 @@ bun dev
 
 Then, get started by regestering and logging in.
 
-```
+---
 
-```
+## Scripts
 
 To add an admin use the following command and follow the instructions.
 
@@ -35,3 +35,5 @@ To restore all the deleted loans, run the following command:
 ```bash
 npm run restoreAllLoans
 ```
+
+## { }

@@ -1,24 +1,57 @@
 ## Getting Started
 
+**Step 1:**
+
 First, pull the repo and install the required dependencies:
 
 ```bash
-npm install
+
+npm  install
+
 ```
+
+---
+
+**Step 2:**
 
 Then, run the development server:
 
 ```bash
-npm run dev
+
+npm  run  dev
+
 # or
-yarn dev
+
+yarn  dev
+
 # or
-pnpm dev
+
+pnpm  dev
+
 # or
-bun dev
+
+bun  dev
+
 ```
 
-Then, get started by registering and logging in.
+**Or,**
+
+For faster experience, build the application and run it.
+
+```bash
+#start the build
+npm run build
+
+#start the build server
+npm start
+```
+
+---
+
+**Step 3:**
+
+**Application is Ready.**
+Get started by Registering and Logging in.
 
 ---
 
@@ -27,13 +60,17 @@ Then, get started by registering and logging in.
 To add an admin use the following command and follow the instructions.
 
 ```bash
-npm run addAdmin
+
+npm  run  addAdmin
+
 ```
 
 To restore all the deleted loans, run the following command:
 
 ```bash
-npm run restoreAllLoans
+
+npm  run  restoreAllLoans
+
 ```
 
 ---

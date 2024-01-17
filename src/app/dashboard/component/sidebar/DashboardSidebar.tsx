@@ -100,6 +100,7 @@ function SidebarResize({
 	setIsFixed: Dispatch<SetStateAction<boolean>>;
 }) {
 	const isDesktop = useWindowSize(1024);
+
 	if (isDesktop && !isFixed) {
 		setIsFixed(true);
 		setIsOpen(true);

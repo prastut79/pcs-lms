@@ -9,7 +9,7 @@ import { P_LOAN_EDIT, P_LOAN_VERIFY } from "@/config/siteConfig";
 import LoanDeleteAction from "./LoanDeleteAction";
 import { useSession } from "next-auth/react";
 import { capitalize } from "@/app/utils/text";
-import { TranVerificationProps } from "@/app/dashboard/loan/admin/approved/page";
+import { TranVerificationProps } from "@/app/dashboard/admin/loan/approved/page";
 
 export default function LoanActions({
 	loan,

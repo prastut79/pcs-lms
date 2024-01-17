@@ -1,5 +1,5 @@
 import { API_LOAN } from "@/config/apiConfig";
-import { LoanProps } from "../../_forms/LoanForm";
+import { LoanProps } from "../../../loan/_forms/LoanForm";
 import DashContainer from "../../../component/Dashcontainer";
 import { P_LOAN, P_LOAN_PENDING } from "@/config/siteConfig";
 import LoanList from "@/components/loan/LoanList";

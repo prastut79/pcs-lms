@@ -35,7 +35,7 @@ model Loan{
   user User @relation(fields: [userId], references:[id])
   userId Int
 
-  trans TranVerification[]
+  trans TranVerification?
 }
 
 
@@ -47,6 +47,5 @@ model TranVerification {
   verifiedBy Int
   
   tran Loan @relation(fields: [tranId], references:[id])
-  tranId Int
-   
+  tranId Int @unique
 }

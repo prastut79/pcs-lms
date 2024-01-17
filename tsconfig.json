@@ -29,7 +29,8 @@
 		"**/*.tsx",
 		".next/types/**/*.ts",
 		"scripts/addAdmin.js",
-		"scripts/restoreLoan.js"
+		"scripts/restoreLoan.js",
+		"next.config.js"
 	],
 	"exclude": ["node_modules"]
 }

@@ -5,7 +5,7 @@ import Modal from "@/components/modal";
 import { getFormatedDate } from "@/app/utils/date";
 import LoanStatus from "@/components/loan/LoanStatus";
 import Button from "../ui/nativeButton";
-import { TranVerificationProps } from "@/app/dashboard/loan/admin/approved/page";
+import { TranVerificationProps } from "@/app/dashboard/admin/loan/approved/page";
 import { capitalize } from "@/app/utils/text";
 
 export default function LoanViewModal({
@@ -38,8 +38,8 @@ export default function LoanViewModal({
 				>
 					<div className="px-6 py-8 w-full">
 						<h1 className=" text-xl font-bold">Loan Details</h1>
-						<div className="title-under mb-8" />
-						<div className="grid w-full gap-6">
+						<div className="title-under mb-6" />
+						<div className="grid w-full gap-9">
 							<div className="flex justify-between">
 								<div>
 									<LoanStatus status={loan.status} />
@@ -81,7 +81,7 @@ export default function LoanViewModal({
 							</div>
 							<div>
 								<h6 className="text-xs">Purpose</h6>
-								<h3 className="font-semibold">
+								<h3 className="text-sm font-medium">
 									{loan.purpose}
 								</h3>
 							</div>
@@ -102,7 +102,7 @@ export default function LoanViewModal({
 							{loan.remarks && (
 								<div className="py-4">
 									<h6 className="text-xs">Remarks</h6>
-									<h3 className="font-semibold">
+									<h3 className="text-sm font-medium">
 										{loan.remarks}
 									</h3>
 								</div>
@@ -130,7 +130,7 @@ export default function LoanViewModal({
 								</div>
 							</>
 						)}
-						<div className="flex justify-end">
+						<div className="flex justify-end mt-4">
 							<Button onClick={handleClose}>Close</Button>
 						</div>
 					</div>

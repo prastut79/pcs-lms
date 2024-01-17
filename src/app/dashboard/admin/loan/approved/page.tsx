@@ -1,5 +1,5 @@
 import { API_LOAN, API_VERIFY } from "@/config/apiConfig";
-import { LoanProps, UserProps } from "../../_forms/LoanForm";
+import { LoanProps, UserProps } from "../../../loan/_forms/LoanForm";
 import DashContainer from "../../../component/Dashcontainer";
 import { P_LOAN, P_LOAN_APPROVED } from "@/config/siteConfig";
 import { Metadata } from "next";
@@ -33,6 +33,6 @@ export interface TranVerificationProps {
 	verifiedAt: string;
 	verifiedBy: number;
 	tranId: number;
-	tran: LoanProps;
-	user: UserProps;
+	tran?: LoanProps;
+	user?: UserProps;
 }

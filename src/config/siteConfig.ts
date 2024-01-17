@@ -20,9 +20,11 @@ export const P_LOAN_EDIT = {
 	label: "Edit",
 	title: "Loan Edit",
 };
+
 export const P_LOAN_ADMIN = {
-	href: P_LOAN.href + "/admin",
+	href: P_DASHBOARD.href + "/admin/loan",
 };
+
 export const P_LOAN_VERIFY = {
 	href: P_LOAN_ADMIN.href + "/verify",
 	label: "Verification",

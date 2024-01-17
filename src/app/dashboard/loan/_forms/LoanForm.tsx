@@ -12,6 +12,7 @@ import { getFormatedDate } from "@/app/utils/date";
 import LoanStatus from "@/components/loan/LoanStatus";
 import { toast } from "react-toastify";
 import { API_UNEXPECTED_ERROR } from "@/config/apiConfig";
+import { TranVerificationProps } from "../../admin/loan/approved/page";
 
 export default function LoanForm({
 	value,
@@ -70,6 +71,7 @@ export default function LoanForm({
 					required
 					type="number"
 					placeholder="Loan Amount"
+					min={1}
 					max={99999999999}
 					disabled={action === "verify"}
 					{...register("amount")}
@@ -166,6 +168,7 @@ export interface LoanProps {
 	userId?: number;
 	fine?: number;
 	user?: UserProps;
+	trans?: TranVerificationProps;
 }
 
 export interface UserProps {

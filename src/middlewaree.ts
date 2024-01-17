@@ -1,15 +1,15 @@
 import { withAuth } from "next-auth/middleware";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { P_LOAN_ADMIN } from "./config/siteConfig";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 export default withAuth((req: NextRequest) => {
 	if (
-		req.url.startsWith(P_LOAN_ADMIN.href) &&
+		req.nextUrl.pathname.startsWith(P_LOAN_ADMIN.href) &&
 		//@ts-expect-error
 		req.nextauth.token.role !== "admin"
 	) {
-		notFound();
+		return NextResponse.rewrite(new URL("/404", req.url));
 	}
 });
 

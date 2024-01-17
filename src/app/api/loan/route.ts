@@ -11,7 +11,7 @@ export async function GET(req: Request) {
 
 		const filters: any = {
 			isRemoved: false,
-			userId: session?.user?.id,
+			userId: session?.user?.id || 1,
 		};
 
 		if (
@@ -25,8 +25,28 @@ export async function GET(req: Request) {
 		const loans = await prisma.loan.findMany({
 			where: { ...filters },
 			include: {
-				user: true,
+				user: {
+					select: {
+						address: true,
+						email: true,
+						phone: true,
+						name: true,
+					},
+				},
+				trans: {
+					include: {
+						user: {
+							select: {
+								name: true,
+							},
+						},
+					},
+				},
 			},
+			// include: {
+			// 	user: true,
+
+			// },
 		});
 
 		return NextResponse.json({ data: loans });
@@ -66,13 +86,22 @@ export async function POST(req: Request) {
 export async function PUT(req: Request) {
 	try {
 		const body = await req.json();
-		const { id, amount, purpose, status, remarks, retry, fine } = body;
+		const {
+			id,
+			amount,
+			purpose,
+			status,
+			remarks,
+			retry,
+			fine,
+			returnedAt,
+		} = body;
 		const loan = await prisma.loan.update({
 			where: { id },
 			data: {
 				amount: Number(amount) || undefined,
 				purpose,
-				returnedAt: new Date(),
+				returnedAt,
 				status: retry ? "pending" : status,
 				remarks,
 				fine,

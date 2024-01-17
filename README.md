@@ -18,7 +18,7 @@ pnpm dev
 bun dev
 ```
 
-Then, get started by regestering and logging in.
+Then, get started by registering and logging in.
 
 ---
 
@@ -35,5 +35,7 @@ To restore all the deleted loans, run the following command:
 ```bash
 npm run restoreAllLoans
 ```
+
+---
 
 ## { }

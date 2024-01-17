@@ -59,7 +59,11 @@ export default function LoanList({
 						</td>
 
 						<td className="p-4">
-							<LoanActions loan={loan} action={action} />
+							<LoanActions
+								loan={loan}
+								action={action}
+								tran={loan.trans}
+							/>
 						</td>
 					</tr>
 				))}

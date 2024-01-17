@@ -1,10 +1,7 @@
-// import crypto from "node:crypto";
-// global.crypto ??= crypto;
 import NextAuth, { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { PrismaClient } from "@prisma/client";
 import { prisma } from "@/db/prisma";
 
 export const NextOptions: AuthOptions = {
@@ -85,4 +82,3 @@ export const NextOptions: AuthOptions = {
 const handler = NextAuth(NextOptions);
 
 export { handler as GET, handler as POST };
-// export default NextAuth(NextOptions);

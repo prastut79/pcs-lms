@@ -1,7 +1,6 @@
 import { withAuth } from "next-auth/middleware";
 import { NextRequest, NextResponse } from "next/server";
 import { P_LOAN_ADMIN } from "./config/siteConfig";
-import { notFound, redirect } from "next/navigation";
 
 export default withAuth((req: NextRequest) => {
 	if (

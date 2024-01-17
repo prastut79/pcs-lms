@@ -48,9 +48,10 @@ async function addAdmin() {
 			}
 		}
 
-		const req = await prisma.user.create({
+		await prisma.user.create({
 			data,
 		});
+
 		console.log();
 		console.log("-".repeat(40));
 		console.log("Admin created. You can now login");

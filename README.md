@@ -1,6 +1,6 @@
 ## Getting Started
 
-First, install the required dependencies:
+First, pull the repo and install the required dependencies:
 
 ```bash
 npm install

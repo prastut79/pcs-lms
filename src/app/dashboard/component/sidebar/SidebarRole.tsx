@@ -23,13 +23,15 @@ export default function DashboardRole({
 			</div>
 
 			<p
-				className={`text-[10px] font-semibold ${
+				className={`text-[10px] flex gap-1 font-semibold ${
 					/**@ts-ignore */
 					"text-tl"
 				}`}
 			>
-				<span className=" text-theme">{data?.user?.name || ""}</span> |{" "}
-				{data?.user?.role?.toUpperCase() || "loading role..."}
+				<span className="block text-theme truncate">
+					{data?.user?.name || ""}
+				</span>
+				|<span>{data?.user?.role?.toUpperCase() || ""}</span>
 			</p>
 		</div>
 	);

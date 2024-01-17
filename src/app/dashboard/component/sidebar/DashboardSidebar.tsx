@@ -48,7 +48,7 @@ export default function DashboardSidebar({
 					// onClick={(e) => e.stopPropagation()}
 				>
 					<button
-						className="fc_x gap-2 absolute bottom-10 left-6 transition hover:text-theme font-bold px-4 py-3  bc_x text-tp text-sm "
+						className="fc_x gap-2 absolute bottom-10 left-2  hover:text-theme font-bold px-4 py-3  bc_x text-tp text-sm "
 						onClick={() => signOut()}
 						title="Logout"
 					>

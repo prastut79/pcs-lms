@@ -1,6 +1,6 @@
 import { API_LOAN, API_VERIFY } from "@/config/apiConfig";
-import { LoanProps, UserProps } from "../_forms/LoanForm";
-import DashContainer from "../../component/Dashcontainer";
+import { LoanProps, UserProps } from "../../_forms/LoanForm";
+import DashContainer from "../../../component/Dashcontainer";
 import { P_LOAN, P_LOAN_APPROVED } from "@/config/siteConfig";
 import { Metadata } from "next";
 import { cookies } from "next/headers";
@@ -21,7 +21,7 @@ export default async function page() {
 	const trans = (await req.json()) as { data: TranVerificationProps[] };
 
 	return (
-		<DashContainer title={P_LOAN.title}>
+		<DashContainer title={P_LOAN_APPROVED.title}>
 			<div>
 				<ApprovedList trans={trans.data} />
 			</div>

@@ -1,6 +1,6 @@
 import { API_LOAN } from "@/config/apiConfig";
-import { LoanProps } from ".././_forms/LoanForm";
-import DashContainer from "../../component/Dashcontainer";
+import { LoanProps } from "../../_forms/LoanForm";
+import DashContainer from "../../../component/Dashcontainer";
 import { P_LOAN, P_LOAN_PENDING } from "@/config/siteConfig";
 import LoanList from "@/components/loan/LoanList";
 import { Metadata } from "next";
@@ -19,7 +19,7 @@ export default async function page() {
 	const loans = (await req.json()) as { data: LoanProps[] };
 
 	return (
-		<DashContainer title={P_LOAN.title}>
+		<DashContainer title={P_LOAN_PENDING.title}>
 			<div>
 				<LoanList loans={loans.data} action="verify" />
 			</div>

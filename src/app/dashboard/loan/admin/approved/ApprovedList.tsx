@@ -11,10 +11,10 @@ export default function ApprovedList({
 	trans: TranVerificationProps[];
 	action?: "verify" | "edit";
 }) {
-	if (!trans) {
+	if (!trans || trans?.length === 0) {
 		return (
 			<div className="fc_xy min-h-32 w-full">
-				<p>No Approvals found</p>
+				<p>No Loan Approvals found</p>
 			</div>
 		);
 	}
@@ -58,7 +58,11 @@ export default function ApprovedList({
 							</p>
 						</td>
 						<td className="p-4">
-							<LoanActions loan={tran.tran} action={"verify"} />
+							<LoanActions
+								loan={tran.tran}
+								action={"verify"}
+								tran={tran}
+							/>
 						</td>
 					</tr>
 				))}

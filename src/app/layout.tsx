@@ -7,7 +7,10 @@ import Providers from "./Provider";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-	title: "Loan Management System",
+	title: {
+		default: " Loan Management System",
+		template: "%s | Loan Management System",
+	},
 	description: "A loan management system.",
 };
 

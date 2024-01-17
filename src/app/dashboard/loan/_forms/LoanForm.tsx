@@ -3,14 +3,15 @@
 import { Controller, useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import Button from "@/components/ui/nativeButton";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { Combobox } from "@/components/ui/combobox";
 import { Textarea } from "@/components/ui/textarea";
-import { API_LOAN } from "@/config/apiConfig";
 import { capitalize } from "@/app/utils/text";
-import { DatePicker } from "@/components/ui/datepicker";
 import { getFormatedDate } from "@/app/utils/date";
+import LoanStatus from "@/components/loan/LoanStatus";
+import { toast } from "react-toastify";
+import { API_UNEXPECTED_ERROR } from "@/config/apiConfig";
 
 export default function LoanForm({
 	value,
@@ -28,17 +29,29 @@ export default function LoanForm({
 		},
 	});
 	const [isLoading, setIsLoading] = useState(false);
+
 	const session = useSession();
 
 	const formSubmit = async (data: LoanProps) => {
 		setIsLoading(true);
 		try {
-			await onSubmit({
-				...data,
-				returnedAt: new Date(data.returnedAt).toISOString(),
-				userId: session.data?.user?.id,
-			});
-		} catch (e) {}
+			//Date Validation
+			if (
+				(data.requestedAt ? new Date(data.requestedAt) : new Date()) >=
+				new Date(data.returnedAt)
+			) {
+				toast.error("Return Date cannot be before Requested Date.");
+			} else {
+				await onSubmit({
+					...data,
+					returnedAt: new Date(data.returnedAt).toISOString(),
+					userId: session.data?.user?.id,
+					fine: Number(data.fine) || (null as any),
+				});
+			}
+		} catch (e: any) {
+			toast.error(API_UNEXPECTED_ERROR, e.message);
+		}
 		setIsLoading(false);
 	};
 
@@ -46,6 +59,11 @@ export default function LoanForm({
 
 	return (
 		<form onSubmit={handleSubmit(formSubmit)} className="grid gap-8">
+			{value?.status && (
+				<div>
+					<LoanStatus status={value.status} />
+				</div>
+			)}
 			<div className="form-grid">
 				<Input
 					label="Loan Amount"

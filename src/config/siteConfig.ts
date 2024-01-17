@@ -20,18 +20,21 @@ export const P_LOAN_EDIT = {
 	label: "Edit",
 	title: "Loan Edit",
 };
+export const P_LOAN_ADMIN = {
+	href: P_LOAN.href + "/admin",
+};
 export const P_LOAN_VERIFY = {
-	href: P_LOAN.href + "/verify",
+	href: P_LOAN_ADMIN.href + "/verify",
 	label: "Verification",
 	title: "Loan Verification",
 };
 export const P_LOAN_PENDING = {
-	href: P_LOAN.href + "/pending",
+	href: P_LOAN_ADMIN.href + "/pending",
 	label: "Pending",
 	title: "Loans Pending",
 };
 export const P_LOAN_APPROVED = {
-	href: P_LOAN.href + "/approved",
+	href: P_LOAN_ADMIN.href + "/approved",
 	label: "Approved",
 	title: "Loans Approved",
 };

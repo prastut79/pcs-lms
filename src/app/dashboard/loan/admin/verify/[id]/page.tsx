@@ -1,5 +1,5 @@
-import { P_LOAN_EDIT, P_LOAN_VERIFY } from "@/config/siteConfig";
-import DashContainer from "../../../component/Dashcontainer";
+import { P_LOAN_VERIFY } from "@/config/siteConfig";
+import DashContainer from "@/app/dashboard/component/Dashcontainer";
 import { API_LOAN } from "@/config/apiConfig";
 import LoanVerifyForm from "./LoanVerifyForm";
 import { Metadata } from "next";

@@ -28,6 +28,7 @@ export default function DashboardRole({
 					"text-tl"
 				}`}
 			>
+				<span className=" text-theme">{data?.user?.name || ""}</span> |{" "}
 				{data?.user?.role?.toUpperCase() || "loading role..."}
 			</p>
 		</div>

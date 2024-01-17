@@ -6,7 +6,6 @@ import {
 	P_LOAN_ADD,
 	P_LOAN_APPROVED,
 	P_LOAN_PENDING,
-	P_LOAN_VERIFY,
 } from "@/config/siteConfig";
 
 export default async function Sidebar() {

@@ -2,7 +2,7 @@ import Sidebar from "./component/sidebar/Sidebar";
 
 export const metadata = {
 	title: {
-		default: "",
+		default: "Dashboard | Loan Management System",
 		template: "%s | Dashboard | Loan Management System",
 	},
 };

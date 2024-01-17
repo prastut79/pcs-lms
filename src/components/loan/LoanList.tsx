@@ -10,7 +10,7 @@ export default function LoanList({
 	loans: LoanProps[];
 	action?: "verify" | "edit";
 }) {
-	if (!loans) {
+	if (!loans || loans.length === 0) {
 		return (
 			<div className="fc_xy min-h-32 w-full">
 				<p>No Loans found</p>

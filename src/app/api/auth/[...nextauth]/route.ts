@@ -32,7 +32,7 @@ export const NextOptions: AuthOptions = {
 
 				// if no user was found
 				if (!user || !user?.password) {
-					throw new Error("No user found");
+					throw new Error("Incorrect Email or Password");
 				}
 
 				// check to see if password matches
@@ -43,7 +43,7 @@ export const NextOptions: AuthOptions = {
 
 				// if password does not match
 				if (!passwordMatch) {
-					throw new Error("Incorrect password");
+					throw new Error("Incorrect Email or Password");
 				}
 
 				return user;

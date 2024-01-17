@@ -5,8 +5,16 @@ import Modal from "@/components/modal";
 import { getFormatedDate } from "@/app/utils/date";
 import LoanStatus from "@/components/loan/LoanStatus";
 import Button from "../ui/nativeButton";
+import { TranVerificationProps } from "@/app/dashboard/loan/admin/approved/page";
+import { capitalize } from "@/app/utils/text";
 
-export default function LoanViewModal({ loan }: { loan: LoanProps }) {
+export default function LoanViewModal({
+	loan,
+	tran,
+}: {
+	loan: LoanProps;
+	tran?: TranVerificationProps;
+}) {
 	const [isOpen, setIsOpen] = useState(false);
 	function handleClose() {
 		setIsOpen(false);
@@ -47,7 +55,9 @@ export default function LoanViewModal({ loan }: { loan: LoanProps }) {
 							<div className="flex gap-4 justify-between">
 								<div>
 									<h6 className="text-xs">Amount</h6>
-									<h3>Rs. {loan.amount}</h3>
+									<h3 className="font-semibold">
+										Rs. {loan.amount}
+									</h3>
 								</div>
 
 								<div>
@@ -98,6 +108,28 @@ export default function LoanViewModal({ loan }: { loan: LoanProps }) {
 								</div>
 							)}
 						</div>
+						{tran && loan.status === "approved" && (
+							<>
+								<div className="w-full h-0.5 bg-black/10 my-5 rounded-full" />
+								<div className="flex justify-between my-4">
+									<div className="py-4">
+										<h6 className="text-xs">Approved by</h6>
+										<h3 className="font-semibold">
+											{tran?.user?.name}
+										</h3>
+									</div>
+									<div className="py-4">
+										<h6 className="text-xs">Approved On</h6>
+										<h3 className="font-semibold">
+											{getFormatedDate(
+												tran?.verifiedAt,
+												true
+											)}
+										</h3>
+									</div>
+								</div>
+							</>
+						)}
 						<div className="flex justify-end">
 							<Button onClick={handleClose}>Close</Button>
 						</div>

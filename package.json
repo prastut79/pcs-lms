@@ -7,8 +7,8 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"setup-admin": "tsx scripts/addAdmin.js",
-		"restore-loan": "tsx scripts/restoreLoan.ts"
+		"addAdmin": "tsx scripts/addAdmin.js",
+		"restoreAllLoans": "tsx scripts/restoreLoan.js"
 	},
 	"dependencies": {
 		"@next-auth/prisma-adapter": "^0.4.4-canary.81",
